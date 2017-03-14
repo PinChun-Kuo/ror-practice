@@ -1,0 +1,25 @@
+AllCops:
+  Excludes:
+    - db/*.rb
+    - spec/*_helper.rb
+
+# Style
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Metrics
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+# Assignment Branch Condition (ABC) size
+Metrics/AbcSize:
+  Enabled: false

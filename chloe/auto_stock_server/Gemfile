@@ -1,0 +1,77 @@
+source 'https://rubygems.org'
+
+gem 'rails', '3.2.22.1'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+gem 'sqlite3'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '~> 3.2.3'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
+
+  gem 'uglifier', '>= 1.0.3'
+
+  # use angular-rails-templates to add templates into Angular's $templateCache using Rails asset pipeline
+  gem 'angular-rails-templates', '~> 0.1.3'
+end
+
+gem 'jquery-rails'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'debugger'
+
+# Use nokogiti to parse html
+gem 'nokogiri'
+
+# Use rubocop to unify coding style
+gem 'rubocop', '~> 0.47.1', require: false
+
+# Use font-awesome for view
+gem 'font-awesome-sass'
+
+# gem 'autoprefixer-rails'
+
+# Use bootstrap for view
+gem 'bootstrap-sass', '~> 3.2.0'
+
+# Cron job in Ruby
+gem 'whenever', require: false
+
+# use angularjs-rails which wraps the Angular.js library for angular use
+gem 'angularjs-rails', '~> 1.4.7'
+
+# use slim templates
+# slim tells Rails how to parse the Slim syntax.
+gem 'slim', '~> 3.0'
+# slim-rails overrides the Rails generators for ERB and replaces them with Slim generators.
+gem 'slim-rails', '~> 3.1'
+
+group :test, :development do
+  # Use capybara to simulate the browser behavior for view test
+  gem 'capybara', '2.12.0'
+
+  # Use factory_girl_rails to setup Ruby objects as test data
+  gem 'factory_girl_rails', '~> 4.0'
+
+  # test framework for rails
+  gem 'rspec-rails', '~> 3.5'
+end

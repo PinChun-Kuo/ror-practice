@@ -1,0 +1,8 @@
+.search
+  form
+    label.numberLabel 搜尋代號 ：
+    input#numberInput.numberInput type='number' min='0' ng-model='stockNumber'
+    label.dateLabel 搜尋日期 ：
+    input#dateInput.dateInput type='date' ng-model='searchDate'
+    button.searchBtn ng-click='searchFunction()' search
+    button.exportBtn ng-click='exportFunction()' export

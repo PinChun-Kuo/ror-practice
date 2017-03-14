@@ -1,0 +1,70 @@
+// Place all the styles related to the turnovers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+body {
+  font-family: Quicksand;
+  font-size: 14px;
+  letter-spacing: 2px;
+  .blue {
+    color: rgb(12, 12, 255);
+  }
+  .up {
+    color: rgb(236, 1, 140);
+  }
+  .down {
+    color: rgb(19, 161, 19);
+  }
+  .turnovers {
+    margin-left: 20px;
+    width: 1062px;
+    .search {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      form {
+        position: relative;
+        input, .searchBtn, .exportBtn {
+          padding: 4px 10px;
+          border: solid #000 1px;
+          border-radius: 4px;
+          letter-spacing: 2px;
+        }
+        .numberInput {
+          width: 100px;
+          height: 30px;
+        }
+        .dateInput {
+          width: 200px;
+          height: 30px;
+        }
+        .dateLabel, .searchBtn, .exportBtn {
+          margin-left: 20px;
+        }
+        .exportBtn {
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+    table {
+      thead tr th {
+        font-size: 16px;
+        button {
+          background-color: rgba(255, 255, 255, 0);
+          padding: 0px;
+          border-width: 1px;
+          border-color: rgba(255, 255, 255, 0);
+        }
+      }
+      .id {
+        width: 60px;
+      }
+      .number, .name, .opening_price, .highest_price, .lowest_price, .closing_yesterday, .closing_today, .volumn, .quote_change, .change, {
+        width: 100px;
+      }
+    }
+  }
+}
