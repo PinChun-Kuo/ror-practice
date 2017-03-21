@@ -10,7 +10,7 @@ RSpec.describe 'turnovers/index.html.slim', type: :view do
     end
 
     it 'should have have these attributes' do
-      expect(response).to have_css("div[ng-app='turnoversApp'][ng-controller='TurnoverCtrl']", class: 'turnovers')
+      expect(response).to have_css("div[ng-app='turnoversApp'][ng-controller='TurnoverController as tCtrl']", class: 'turnovers')
     end
   end
 
@@ -24,7 +24,7 @@ RSpec.describe 'turnovers/index.html.slim', type: :view do
     end
 
     it 'should have have these attributes' do
-      expect(response).to have_css("search[stock-number='number'][search-date='date'][search-function='search()'][export-function='export()']")
+      expect(response).to have_css("search[stock-number='tCtrl.number'][search-date='tCtrl.date'][search-function='tCtrl.search()'][export-function='tCtrl.export()']")
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe 'turnovers/index.html.slim', type: :view do
     end
 
     it 'should have have these attributes' do
-      expect(response).to have_css("stock-table[desc='desc'][asc='asc'][turnovers='turnovers'][sort-desc='sortDesc(column)'][sort-asc='sortAsc(column)']")
+      expect(response).to have_css("stock-table[desc='tCtrl.desc'][asc='tCtrl.asc'][turnovers='tCtrl.turnovers'][sort-desc='tCtrl.sortDesc(column)'][sort-asc='tCtrl.sortAsc(column)']")
     end
   end
 end
