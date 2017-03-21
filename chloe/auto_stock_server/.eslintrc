@@ -1,0 +1,29 @@
+{
+  "extends": ["airbnb-base", "angular"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-var": 0,
+    "prefer-template": 0,
+    "prefer-arrow-callback": 0,
+    "object-shorthand": 0,
+    "func-names": 0 ,
+    // Above is configure for es5
+    "space-before-function-paren": ["error", { "anonymous": "never", "named": "never" }],
+    "comma-dangle": ["error", "only-multiline"],
+    "import/no-unresolved": 0,
+    "max-len": 0,
+    "block-scoped-var": 2,
+    "padded-blocks": 0,
+    "no-console": 1,
+    "id-length": 0,
+    "no-unused-expressions": 0,
+    "no-unused-vars": 0,
+    "jsx-quotes": ["error", "prefer-single"],
+    "no-param-reassign": ["error", { "props": false }],
+    "quote-props": ["error", "consistent"],
+    "angular/no-service-method": 0
+  }
+}

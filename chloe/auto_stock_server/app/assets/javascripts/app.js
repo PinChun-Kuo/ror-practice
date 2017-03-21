@@ -1,1 +1,1 @@
-var app = angular.module('turnoversApp', ['templates']);
+angular.module('turnoversApp', ['templates']);

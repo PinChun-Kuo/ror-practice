@@ -1,46 +1,49 @@
-app.controller('TurnoverCtrl', ['$scope', '$http', 'stockFactory', 'stockService', function($scope, $http, stockFactory, stockService) {
-  // initialize
-  $scope.init = function(turnoversStr) {
-    $scope.turnovers = stockFactory.symbolChange(JSON.parse(turnoversStr));
-    $scope.number = null;
-    $scope.date = new Date();
-    $scope.desc = true;
-    $scope.asc = false;
-  }
+angular
+  .module('turnoversApp')
+  .controller('TurnoverController', function($http, stockFactory, stockService) {
+    var vm = this;
+    // initialize
+    vm.init = function(turnoversStr) {
+      vm.turnovers = stockFactory.symbolChange(angular.fromJson(turnoversStr));
+      vm.number = null;
+      vm.date = new Date();
+      vm.desc = true;
+      vm.asc = false;
+    };
 
-  // search click
-  $scope.search = function() {
-    if($scope.date === null && $scope.number === null) {
-      $scope.date = new Date();
-    }
+    // search click
+    vm.search = function() {
+      if (vm.date === null && vm.number === null) {
+        vm.date = new Date();
+      }
 
-    if($scope.date !== null) {
-      stockService.searchStock($http, $scope.number, $scope.date.toISOString().slice(0, 10)).then( function(turnovers) {
-        $scope.turnovers = stockFactory.symbolChange(turnovers);
-      });
-    } else {
-      stockService.searchStock($http, $scope.number, $scope.date).then( function(turnovers) {
-        $scope.turnovers = stockFactory.symbolChange(turnovers);
-      });
-    }
-  }
+      if (vm.date !== null) {
+        stockService.searchStock($http, vm.number, vm.date.toISOString().slice(0, 10)).then(function(turnovers) {
+          vm.turnovers = stockFactory.symbolChange(turnovers);
+        });
+      } else {
+        stockService.searchStock($http, vm.number, vm.date).then(function(turnovers) {
+          vm.turnovers = stockFactory.symbolChange(turnovers);
+        });
+      }
+    };
 
-  // export click
-  $scope.export = function() {
-    stockFactory.exportStocks($scope.turnovers)
-  }
+    // export click
+    vm.export = function() {
+      stockFactory.exportStocks(vm.turnovers);
+    };
 
-  // desc sort click
-  $scope.sortDesc = function(column) {
-    $scope.desc = false;
-    $scope.asc = true;
-    $scope.turnovers = stockFactory.desc(column, $scope.turnovers);
-  }
+    // desc sort click
+    vm.sortDesc = function(column) {
+      vm.desc = false;
+      vm.asc = true;
+      vm.turnovers = stockFactory.desc(column, vm.turnovers);
+    };
 
-  // asc sort click
-  $scope.sortAsc = function(column) {
-    $scope.desc = true;
-    $scope.asc = false;
-    $scope.turnovers = stockFactory.asc(column, $scope.turnovers);
-  }
-}]);
+    // asc sort click
+    vm.sortAsc = function(column) {
+      vm.desc = true;
+      vm.asc = false;
+      vm.turnovers = stockFactory.asc(column, vm.turnovers);
+    };
+  });

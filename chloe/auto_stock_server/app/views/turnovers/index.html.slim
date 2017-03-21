@@ -1,3 +1,3 @@
-div.turnovers ng-app='turnoversApp' ng-controller='TurnoverCtrl' ng-init="init('#{@turnovers.to_json}')"
-  search stock-number='number' search-date='date' search-function='search()' export-function='export()'
-  stock-table desc='desc' asc='asc' turnovers='turnovers' sort-desc='sortDesc(column)' sort-asc='sortAsc(column)'
+div.turnovers ng-app='turnoversApp' ng-controller='TurnoverController as tCtrl' ng-init="tCtrl.init('#{@turnovers.to_json}')"
+  search stock-number='tCtrl.number' search-date='tCtrl.date' search-function='tCtrl.search()' export-function='tCtrl.export()'
+  stock-table desc='tCtrl.desc' asc='tCtrl.asc' turnovers='tCtrl.turnovers' sort-desc='tCtrl.sortDesc(column)' sort-asc='tCtrl.sortAsc(column)'
