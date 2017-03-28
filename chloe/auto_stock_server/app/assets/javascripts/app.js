@@ -1,1 +1,1 @@
-angular.module('turnoversApp', ['templates']);
+angular.module('stockApp', ['templates']);

@@ -55,27 +55,27 @@ table.table.table-bordered.table-striped.table-hover
           i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'quote_change'})" ng-show='desc' ng-hide='!desc'
           i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'quote_change'})" ng-show='asc' ng-hide='!asc'
   tbody
-    tr ng-repeat='turnover in turnovers'
+    tr ng-repeat='stock in stocks'
       td.id.text-center
         | {{ $index + 1 }}
       td.number.text-center
-        | {{ turnover.number }}
+        | {{ stock.number }}
       td.name.text-center
-        a ng-href='{{ turnover.hyper_link }}' {{ turnover.name }}
+        a ng-href='{{ stock.hyper_link }}' {{ stock.name }}
       td.opening_price.text-center
-        | {{ turnover.opening_price }}
+        | {{ stock.opening_price }}
       td.highest_price.text-center
-        | {{ turnover.highest_price }}
+        | {{ stock.highest_price }}
       td.lowest_price.text-center
-        | {{ turnover.lowest_price }}
+        | {{ stock.lowest_price }}
       td.closing_yesterday.text-center
-        | {{ turnover.closing_yesterday }}
+        | {{ stock.closing_yesterday }}
       td.closing_today.text-center
-        | {{ turnover.closing_today }}
+        | {{ stock.closing_today }}
       td.volumn.blue.text-center
-        | {{ turnover.volumn }}
-      td.change.text-center class='{{turnover.colorClass}}'
-        | {{ turnover.symbol }}
-        | {{ turnover.changeNum }}
+        | {{ stock.volumn }}
+      td.change.text-center class='{{stock.colorClass}}'
+        | {{ stock.symbol }}
+        | {{ stock.changeNum }}
       td.quote_change.text-center
-        | {{ turnover.quote_change }}
+        | {{ stock.quote_change }}

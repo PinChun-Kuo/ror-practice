@@ -2,42 +2,42 @@
 /* eslint no-undef: "error" */
 
 angular
-  .module('turnoversApp')
+  .module('stockApp')
   .factory('stockFactory', function() {
     return {
-      symbolChange: function(turnovers) {
-        for (let i = 0; i < turnovers.length; i += 1) {
-          turnovers[i].changeNum = Math.abs(turnovers[i].change);
-          if (turnovers[i].change < 0) {
-            turnovers[i].symbol = '▼ ';
-            turnovers[i].colorClass = 'down';
-          } else if (turnovers[i].change === 0) {
-            turnovers[i].symbol = '- ';
-            turnovers[i].colorClass = '';
+      symbolChange: function(stocks) {
+        for (let i = 0; i < stocks.length; i += 1) {
+          stocks[i].changeNum = Math.abs(stocks[i].change);
+          if (stocks[i].change < 0) {
+            stocks[i].symbol = '▼ ';
+            stocks[i].colorClass = 'down';
+          } else if (stocks[i].change === 0) {
+            stocks[i].symbol = '- ';
+            stocks[i].colorClass = '';
           } else {
-            turnovers[i].symbol = '▲ ';
-            turnovers[i].colorClass = 'up';
+            stocks[i].symbol = '▲ ';
+            stocks[i].colorClass = 'up';
           }
         }
 
-        return turnovers;
+        return stocks;
       },
-      exportStocks: function(turnovers) {
+      exportStocks: function(stocks) {
         var exportStocks = [];
         // filter export column and order
-        for (let i = 0; i < turnovers.length; i += 1) {
+        for (let i = 0; i < stocks.length; i += 1) {
           exportStocks[i] = {
-            '代號': turnovers[i].number,
-            '名稱': turnovers[i].name,
-            '開盤價': turnovers[i].opening_price,
-            '最高價': turnovers[i].highest_price,
-            '最低價': turnovers[i].lowest_price,
-            '昨收盤': turnovers[i].closing_yesterday,
-            '今收盤': turnovers[i].closing_today,
-            '成交量': turnovers[i].volumn,
-            '漲跌': turnovers[i].change,
-            '漲跌幅': turnovers[i].quote_change,
-            '日期': turnovers[i].date
+            '代號': stocks[i].number,
+            '名稱': stocks[i].name,
+            '開盤價': stocks[i].opening_price,
+            '最高價': stocks[i].highest_price,
+            '最低價': stocks[i].lowest_price,
+            '昨收盤': stocks[i].closing_yesterday,
+            '今收盤': stocks[i].closing_today,
+            '成交量': stocks[i].volumn,
+            '漲跌': stocks[i].change,
+            '漲跌幅': stocks[i].quote_change,
+            '日期': stocks[i].date
           };
         }
         alasql("SELECT * INTO XLSX( 'stocks.xlsx', {headers:true} ) FROM ?", [exportStocks]);

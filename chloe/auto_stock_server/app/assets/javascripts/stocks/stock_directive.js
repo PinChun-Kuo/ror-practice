@@ -1,5 +1,5 @@
 angular
-  .module('turnoversApp')
+  .module('stockApp')
   .directive('search', function() {
     return {
       restrict: 'E',
@@ -15,7 +15,7 @@ angular
   });
 
 angular
-  .module('turnoversApp')
+  .module('stockApp')
   .directive('stockTable', function() {
     return {
       restrict: 'E',
@@ -23,7 +23,7 @@ angular
       scope: {
         desc: '=',
         asc: '=',
-        turnovers: '=',
+        stocks: '=',
         sortDesc: '&',
         sortAsc: '&'
       },

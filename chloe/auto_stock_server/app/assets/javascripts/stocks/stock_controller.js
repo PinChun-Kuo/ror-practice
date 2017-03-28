@@ -1,10 +1,10 @@
 angular
-  .module('turnoversApp')
-  .controller('TurnoverController', function($http, stockFactory, stockService) {
+  .module('stockApp')
+  .controller('StockController', function($http, stockFactory, stockService) {
     var vm = this;
     // initialize
-    vm.init = function(turnoversStr) {
-      vm.turnovers = stockFactory.symbolChange(angular.fromJson(turnoversStr));
+    vm.init = function(stocksStr) {
+      vm.stocks = stockFactory.symbolChange(angular.fromJson(stocksStr));
       vm.number = null;
       vm.date = new Date();
       vm.desc = true;
@@ -18,32 +18,32 @@ angular
       }
 
       if (vm.date !== null) {
-        stockService.searchStock($http, vm.number, vm.date.toISOString().slice(0, 10)).then(function(turnovers) {
-          vm.turnovers = stockFactory.symbolChange(turnovers);
+        stockService.searchStock($http, vm.number, vm.date.toISOString().slice(0, 10)).then(function(stocks) {
+          vm.stocks = stockFactory.symbolChange(stocks);
         });
       } else {
-        stockService.searchStock($http, vm.number, vm.date).then(function(turnovers) {
-          vm.turnovers = stockFactory.symbolChange(turnovers);
+        stockService.searchStock($http, vm.number, vm.date).then(function(stocks) {
+          vm.stocks = stockFactory.symbolChange(stocks);
         });
       }
     };
 
     // export click
     vm.export = function() {
-      stockFactory.exportStocks(vm.turnovers);
+      stockFactory.exportStocks(vm.stocks);
     };
 
     // desc sort click
     vm.sortDesc = function(column) {
       vm.desc = false;
       vm.asc = true;
-      vm.turnovers = stockFactory.desc(column, vm.turnovers);
+      vm.stocks = stockFactory.desc(column, vm.stocks);
     };
 
     // asc sort click
     vm.sortAsc = function(column) {
       vm.desc = true;
       vm.asc = false;
-      vm.turnovers = stockFactory.asc(column, vm.turnovers);
+      vm.stocks = stockFactory.asc(column, vm.stocks);
     };
   });
