@@ -20,7 +20,7 @@ class Turnover < ActiveRecord::Base
     date_now = Time.new.in_time_zone.to_date.to_s
     last_data = Turnover.last
 
-    if !last_data.blank?
+    unless last_data.blank?
       date_last_data = last_data[:date]
 
       if date_now == date_last_data
