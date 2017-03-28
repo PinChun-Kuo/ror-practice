@@ -10,6 +10,9 @@ Style/Documentation:
 Style/ClassAndModuleChildren:
   Enabled: false
 
+Style/UnlessElse:
+  Enabled: false
+  
 # Metrics
 Metrics/LineLength:
   Enabled: false
