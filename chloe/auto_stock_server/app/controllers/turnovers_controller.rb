@@ -23,18 +23,10 @@ class TurnoversController < ApplicationController
   end
 
   def date_init(date)
-    if date == 'null'
-      nil
-    else
-      date
-    end
+    date == 'null' ? nil : date
   end
 
   def number_init(number)
-    if number == 'null'
-      nil
-    else
-      number
-    end
+    number == 'null' ? nil : number
   end
 end
